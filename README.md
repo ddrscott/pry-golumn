@@ -19,6 +19,15 @@ golumn People.addresses
 golumn People.where(zipcode: '60000')
 ```
 
+<img src="https://user-images.githubusercontent.com/1975119/32610351-21120398-c528-11e7-8fab-5526988cc515.gif" alt="demo"/>
+
+## Install Golumn Command
+
+You'll need a working Python environment to get the `golumn` command
+```sh
+pip install golumn --upgrade
+```
+
 ## Installation without Gemfile
 
 Clone this repository to local file system and load the file via `.pryrc`
