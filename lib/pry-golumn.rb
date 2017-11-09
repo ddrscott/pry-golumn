@@ -46,7 +46,12 @@ Pry::Commands.create_command 'golumn', keep_retval: true, use_shellwords: false 
         end
       end
     end
-    table_name = sql[/from\s+(\w+)/i, 1].tr(%("'), '').strip
+    begin
+      table_name = sql.tr(%("'), '')[/from\s+(\w+)/i, 1]
+    rescue
+      table_name = '-'
+      output.puts "Could not determine table name. Defaulting to '-'"
+    end
     table_name = table_name.blank? ? '-' : table_name
     cmd = "golumn --title #{table_name} #{tmp_file} &"
     output.puts "> #{cmd}"
